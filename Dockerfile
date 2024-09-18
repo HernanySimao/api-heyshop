@@ -4,9 +4,12 @@ RUN apk add --no-cache bash && npm install -g @nestjs/cli
 
 WORKDIR /home/node/app
 
-# Copiar o build e node_modules gerado localmente
+# Copiar apenas os arquivos de dependências primeiro para aproveitar o cache do Docker
+COPY package*.json ./
+RUN npm install
+
+# Copiar o restante dos arquivos do código
 COPY . .
-COPY node_modules ./node_modules
 
 EXPOSE 3000
 
