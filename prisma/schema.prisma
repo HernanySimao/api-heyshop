@@ -41,7 +41,7 @@ model Review {
 
 model Categories {
     id       Int      @id @default(autoincrement())
-    name     String   @db.VarChar(255)
+    name     String   @unique @db.VarChar(255)
     createAt DateTime @default(now())
 
     @@map("categories")
