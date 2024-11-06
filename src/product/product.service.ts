@@ -12,18 +12,18 @@ export class ProductService {
   }
 
   findAll() {
-    return `This action returns all product`;
+    return this.ProductsRepository.findAll()
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} product`;
+    return this.ProductsRepository.findOne(id);
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+    return this.ProductsRepository.update(id, updateProductDto);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} product`;
+    return this.ProductsRepository.remove(id);
   }
 }
